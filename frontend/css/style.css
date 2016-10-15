@@ -2,3 +2,20 @@
     width: auto;
     height: 500px;
 }
+
+a {
+    background-color: transparent;
+}
+
+.navbar{
+  margin-bottom: 0px !important;
+}
+
+
+.navbar-default .navbar-brand{
+  color: #fff !important;
+}
+.navbar, .navbar.navbar-default {
+    background-color: #37474F;
+    color: rgba(255,255,255, 0.84);
+}
