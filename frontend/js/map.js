@@ -30,7 +30,6 @@ var seen = new Array();
 
 var mylat;
 var mylng;
-
 function initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: -34.397, lng: 150.644},
@@ -107,3 +106,5 @@ window.onkeydown = function(e) {
     document.getElementById("latValue").value = mylat;
     document.getElementById("lngValue").value = mylng;
 };
+
+initMap()
