@@ -1,34 +1,33 @@
-/**
- * Created by Johannes Teklote on 15.10.2016.
- */
-var prex;
-var prey;
+function initMap() {
+    var map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: -34.397, lng: 150.644},
+        zoom: 6
+    });
+    var infoWindow = new google.maps.InfoWindow({map: map});
 
-function getLocation() {
+    // Try HTML5 geolocation.
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
+        navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('Location found.');
+            map.setCenter(pos);
+        }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+        });
     } else {
-        alert('Die Bestimmung Ihrer position war leider nicht möglich');
-        prex = 50.0;
-        prey = 10.0;
+        // Browser doesn't support Geolocation
+        handleLocationError(false, infoWindow, map.getCenter());
     }
 }
-function initialize() {
-    getLocation();
-    alert('x: ' + prex + " / y: " + prey);
-    var latlng = new google.maps.LatLng(prex, prey);
-    var mapOptions = {
-        zoom: 11,
-        center: latlng,
-        panControl: true,
-        zoomControl: true,
-        mapTypeControl: true,
-        scaleControl: true,
-        streetViewControl: true,
-        overviewMapControl: true,
-        rotateControl: true,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
 
-    map = new google.maps.Map(document.getElementById('googleMap'), mapOptions);
+function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+    infoWindow.setPosition(pos);
+    infoWindow.setContent(browserHasGeolocation ?
+        'Error: The Geolocation service failed.' :
+        'Error: Your browser doesn\'t support geolocation.');
 }

@@ -3,23 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Map</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
 
-<div>
-    <ul id="eventlist" class="show-events"><h2 style="padding: 0 20px;">Wähle ein Event auf der Karte aus!</h2></ul>
-</div>
+<div id="map" class="map"></div>
 
-<input id="datainput" type="hidden" value="">
-
-<div id="googleMap"></div>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="res/js/bootstrap.min.js"></script>
-<script src="http://maps.googleapis.com/maps/api/js"></script>
-<script src="res/js/sample.js"></script>
-<script src="res/js/maps.js"></script>
-<script src="res/js/list.js"></script>
+<script src="../js/map.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?callback=initMap"></script>
 
 </body>
 </html>
