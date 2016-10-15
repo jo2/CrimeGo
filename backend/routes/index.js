@@ -19,25 +19,32 @@ router.get('/stories/', function (req, res) {
   });
 });
 
-/* GET the waypoint # of the story # */
-router.get('/story/:id/:waypoint', function(req, res) {
-  // find the appropriate story
-  var story;
-  stories.forEach(function(element) {
-    if (element.id == req.params.id) story = element;
-  });
+/* GET all waypoints of the story X */
+router.get('/story/:id', function (req, res) {
+  // find the specified story
+  var story = findStoryById(req.params.id);
+  if (!story) {
+    res.sendStatus(404);
+    return;
+  }
 
+  res.send({
+    id: story.id,
+    waypoints: story.waypoints
+  });
+});
+
+/* GET the waypoint X of the story Y */
+router.get('/story/:id/:waypoint', function(req, res) {
+  // find the specified story
+  var story = findStoryById(req.params.id);
   if (!story) {
     res.sendStatus(404);
     return;
   }
 
   // find the specified waypoint
-  var waypoint;
-  story.waypoints.forEach(function(element, index) {
-    if (index == req.params.waypoint) waypoint = element;
-  });
-
+  var waypoint = findWaypoint(req.params.waypoint, story);
   if (!waypoint) {
     res.sendStatus(404);
     return;
@@ -48,5 +55,21 @@ router.get('/story/:id/:waypoint', function(req, res) {
     waypoint: waypoint
   });
 });
+
+function findStoryById(id) {
+  var story = false;
+  stories.forEach(function(element) {
+    if (element.id == id) story = element;
+  });
+  return story;
+}
+
+function findWaypoint(waypoint, story) {
+  var waypoint = false;
+  story.waypoints.forEach(function(element, index) {
+    if (index == waypoint) waypoint = element;
+  });
+  return waypoint;
+}
 
 module.exports = router;
