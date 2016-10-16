@@ -1,4 +1,8 @@
-const STORYURL = 'js/stories.json'
+var params = getSearchParameters();
+
+const STORYID = params.storyId || 1
+//const STORYURL = 'js/stories.json'
+const STORYURL = 'http://localhost:3000/story/' + STORYID
 const SEEN_RADIUS = 20
 
 var infoWindow, map, positionMarker
@@ -125,8 +129,22 @@ function calcDistance (p1, p2) {
 
 initMap()
 loadStories(function (storiesJson) {
-  theGame.story = storiesJson[0].sightPositions
+  theGame.story = storiesJson.waypoints
   theGame.levelUp()
-  initSightMarkers(storiesJson[0].sightPositions)
-  initCurrentPos(storiesJson[0].sightPositions)
+  initSightMarkers(storiesJson.waypoints)
+  initCurrentPos(storiesJson.waypoints)
 })
+
+function getSearchParameters() {
+    var prmstr = window.location.search.substr(1)
+    return prmstr != null && prmstr != "" ? transformToAssocArray(prmstr) : {}
+}
+function transformToAssocArray( prmstr ) {
+    var params = {}
+    var prmarr = prmstr.split("&")
+    for (var i = 0; i < prmarr.length; i++) {
+        var tmparr = prmarr[i].split("=")
+        params[tmparr[0]] = tmparr[1]
+    }
+    return params
+}

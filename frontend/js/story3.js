@@ -1,11 +1,14 @@
 /**
  * Created by Johannes Teklote on 16.10.2016.
  */
+/**
+ * Created by Johannes Teklote on 16.10.2016.
+ */
 var positions = [
     {
         name: "Bahnhof",
-        hint: 'A Corpse has been found at Schönebeck train station. As one of the leading local private investigators you are accompanying inspector Inspektor to the crime scene. ' +
-        'The victim is a rather young woman and a first analysis of the court physician says that she died around midnight. ',
+        hint: 'Am Bahnhof Schönebeck wurde eine Leiche gefunden. Da Sie zu den führenden Privatermittlern in der Region gehören, werden Sie vom zuständigen Komissar gebeten, mitzukommen.' +
+        'Das Opfer ist eine junge Frau und nach ersten Untersuchungen des Gerichtsmediziners wurde sie vorraussichtlich gegen Mitternacht erdrosselt.',
         pos: {
             lat: 53.17286839853227,
             lng: 8.648514747619629
