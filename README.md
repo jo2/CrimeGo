@@ -1,5 +1,5 @@
 # CrimeGo
-![CrimeGo Logo](https://github.com/jo2/CrimeGo/raw/notmyfaultsir/frontend/img/CrimeGo.png "CrimeGo Logo")
+![CrimeGo Logo](https://github.com/jo2/CrimeGo/raw/development/frontend/img/CrimeGo.png "CrimeGo Logo")
 
 ## Inspiration
 We like crime stories and it would be exciting to solve them in the real world.
