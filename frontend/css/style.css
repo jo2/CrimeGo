@@ -90,13 +90,23 @@ a {
   border-radius: 5px;
   height: 75px;
   margin: 10px auto;
-  position: relative;
   text-align: justify;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+
+.list-content{
+
+  overflow: hidden;
+
 
 }
 
+
+.material-icons{
+  font-size: 20px !important;
+}
 
 
 .logo{
