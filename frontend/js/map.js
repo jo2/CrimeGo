@@ -11,12 +11,14 @@ function Game() {
   this.currentStageCounter= -1
   this.story =  null
   this.checkPlaces =  function (seen){
+    if(this.currentStageCounter + 1 < this.story.length){
     var searchingFor = this.story[this.currentStageCounter+1].name
     if(seen.includes(searchingFor))
       this.levelUp()
+    }
   }
   this.levelUp= function () {
-    if(this.currentStageCounter + 1 < this.story.length){ // Has next step
+    if(this.currentStageCounter < this.story.length - 2){ // Has next step
       this.currentStageCounter = this.currentStageCounter + 1
       createModal(this.story[this.currentStageCounter].hint)
       console.log("Finished step " + this.currentStageCounter)
@@ -25,7 +27,8 @@ function Game() {
     }
   },
   this.askMurder= function() {
-    createFinishForm(this.murders)
+    this.currentStageCounter = this.currentStageCounter + 1
+    createFinishForm(this.murders, this.story[this.currentStageCounter].hint)
     console.log("You won-")
   }
 
@@ -129,14 +132,17 @@ function calcDistance (p1, p2) {
   return (google.maps.geometry.spherical.computeDistanceBetween(p1, p2)).toFixed(0)
 }
 
-function createFinishForm(MurderJson) {
-
+function createFinishForm(MurderJson, text) {
+  $('#last-modal .modal-body').text(text)
    MurderJson.forEach(function(murder) {
      var radio = $('<div class="radio"><label><input type="radio" name="optionsMurder" id="' + murder.name + '" value="' + murder.name + '">' + murder.name + '</label></div>')
 
-     $('#story-modal .modal-body').append(radio)
+     $('#last-modal .modal-body').append(radio)
    })
-   $('#story-modal').modal('show')
+   $('#checkMurderBtn').click(function () {
+
+   })
+   $('#last-modal').modal('show')
 }
 
 function createModal(text) {
@@ -149,9 +155,8 @@ loadStories(function (storiesJson) {
   theGame.story = storiesJson.waypoints
 
   $.getJSON("http://localhost:3000/story/" + STORYID + "/murder", function(json) {
-console.log(json)
-    theGame.murders = json
-    createFinishForm(json)
+    console.log(json)
+    theGame.murders = json.murder
   })
   theGame.levelUp()
   initSightMarkers(storiesJson.waypoints)
