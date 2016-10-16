@@ -58,5 +58,20 @@
                 "hasNext": false
             }
         ]
+    },
+    {
+        "id": 2,
+        "title": "Meine Test Story",
+        "waypoints": [
+            {
+                "name": "Station 1",
+                "hint": "Hier ist irgendetwas passiert",
+                "pos": {
+                    "lat": 53.168089889583236,
+                    "lng": 8.650446087085584
+                },
+                "hasNext": false
+            }
+        ]
     }
 ]
