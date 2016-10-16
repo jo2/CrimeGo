@@ -8,22 +8,24 @@ const SEEN_RADIUS = 20
 var infoWindow, map, positionMarker
 
 function Game() {
-  this.currentStageCounter= 0
+  this.currentStageCounter= -1
   this.story =  null
   this.checkPlaces =  function (seen){
-    var searchingFor = this.story[this.currentStageCounter].name
+    var searchingFor = this.story[this.currentStageCounter+1].name
     if(seen.includes(searchingFor))
       this.levelUp()
   }
   this.levelUp= function () {
     if(this.currentStageCounter + 1 < this.story.length){ // Has next step
       this.currentStageCounter = this.currentStageCounter + 1
+      createModal(this.story[this.currentStageCounter].hint)
       console.log("Finished step " + this.currentStageCounter)
     }else{
-      this.win()
+      this.askMurder()
     }
   },
-  this.win= function() {
+  this.askMurder= function() {
+    createFinishForm(this.murders)
     console.log("You won-")
   }
 
@@ -127,6 +129,20 @@ function calcDistance (p1, p2) {
   return (google.maps.geometry.spherical.computeDistanceBetween(p1, p2)).toFixed(0)
 }
 
+function createFinishForm(MurderJson) {
+
+   MurderJson.forEach(function(murder) {
+     var radio = $('<div class="radio"><label><input type="radio" name="optionsMurder" id="' + murder.name + '" value="' + murder.name + '">' + murder.name + '</label></div>')
+
+     $('#story-modal .modal-body').append(radio)
+   })
+}
+
+function createModal(text) {
+  $('#story-modal .modal-body').text(text)
+  $('#story-modal').modal('show')
+}
+
 initMap()
 loadStories(function (storiesJson) {
   theGame.story = storiesJson.waypoints
@@ -134,7 +150,10 @@ loadStories(function (storiesJson) {
   initSightMarkers(storiesJson.waypoints)
   initCurrentPos(storiesJson.waypoints)
 })
-
+$.getJSON("/story/" + STORYID + "/murder", function(json) {
+  theGame.murders = json
+  createFinishForm(json)
+})
 function getSearchParameters() {
     var prmstr = window.location.search.substr(1)
     return prmstr != null && prmstr != "" ? transformToAssocArray(prmstr) : {}
