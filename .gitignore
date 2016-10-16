@@ -2,3 +2,5 @@
 /.idea/
 .gitignore
 
+/backend/.idea/
+/frontend/.idea/
