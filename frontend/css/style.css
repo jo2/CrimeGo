@@ -1,3 +1,8 @@
+body{
+  padding-top: 70px;
+  background-color: #eee !important;
+}
+
 .map {
     width: auto;
     height: 500px;
@@ -11,6 +16,9 @@ a {
   margin-bottom: 0px !important;
 }
 
+.navbar{
+  margin-bottom: 25px;
+}
 
 .navbar-default .navbar-brand{
   color: #fff !important;
@@ -18,4 +26,136 @@ a {
 .navbar, .navbar.navbar-default {
     background-color: #37474F;
     color: rgba(255,255,255, 0.84);
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: #fff !important;
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {
+    color: #212121;
+    background-color: #455A64 !important;
+}
+
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus {
+    background-color: #455A64 !important;
+    color: #212121;
+}
+
+.dropdown-menu{
+  background-color: #455A64 !important
+}
+
+.navbar-default .navbar-nav .open .dropdown-menu>li>a {
+    color: #fff !important;
+}
+
+.navbar-default .navbar-nav .open .dropdown-menu>li>a {
+    color: #fff !important;
+}
+
+.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus {
+    background-color: #37474F !important;
+}
+
+.dropdown-menu .divider {
+    height: 1px;
+    margin: 10.5px 0;
+    overflow: hidden;
+    background-color: #3c3c3c !important;
+}
+
+
+
+
+#map{
+    height: calc(100vh - 62px);
+}
+
+.list-wrapper{
+  min-height: 5px;
+}
+
+.list-wrapper>ul{
+  margin: 0px;
+  padding-left: 0px;
+
+
+}
+.list-wrapper>ul>li{
+  list-style: none;
+  padding: 0px;
+  width: 95%;
+  background: #fff;
+  border-radius: 5px;
+  height: 75px;
+  margin: 10px auto;
+  position: relative;
+  text-align: justify;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+
+}
+
+
+
+.logo{
+  position: relative;
+  height: 50px;
+  width: auto;
+  top: -10px;
+}
+
+.info-card{
+  height: 103px;
+  width: 100%;
+  position: absolute;
+  background: #37474F;
+  text-align: center;
+}
+
+.card{
+  width: 95%;
+  background: #fff;
+  padding: 10px 15px 0 15px;
+  border-radius: 5px;
+  height: 75px;
+  position: relative;
+  margin: 12.5px auto;
+  text-align: justify;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.btn.card{
+  padding: 20px 0px;
+  border-radius: 40px;
+
+}
+
+i.material-icons.book-icon-map{
+  font-size: 30px;
+}
+.btn-font{
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  position: relative;
+  top: -5px
+}
+
+
+
+@media screen and (min-width: 1000px){
+
+  .info-card{
+    height: 133px;
+    margin: 0px auto;
+    background: #37474F;
+
+  }
+  .card{
+    width: 400px;
+    position: relative;
+    top: 0px;
+    transform: translateY(-50%);
+  }
 }
