@@ -140,7 +140,16 @@ function createFinishForm(MurderJson, text) {
      $('#last-modal .modal-body').append(radio)
    })
    $('#checkMurderBtn').click(function () {
-
+     var chosen = $('input[name=optionsMurder]:checked').val()
+     console.log("U think it was " + chosen)
+     $('#last-modal').modal('hide')
+     var won = false
+      MurderJson.forEach(function(murder) {
+        if(murder.name == chosen && murder.isMurder == true)
+          won = true;
+      })
+      var text = won ? "Hurray you  have found the murderer!" : "Unfortunatly the murderer still roams the earth :("
+     createModal(text)
    })
    $('#last-modal').modal('show')
 }
