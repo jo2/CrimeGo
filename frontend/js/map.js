@@ -150,7 +150,7 @@ loadStories(function (storiesJson) {
   initSightMarkers(storiesJson.waypoints)
   initCurrentPos(storiesJson.waypoints)
 })
-$.getJSON("/story/" + STORYID + "/murder", function(json) {
+$.getJSON("http://localhost:3000/story/" + STORYID + "/murder", function(json) {
   theGame.murders = json
   createFinishForm(json)
 })

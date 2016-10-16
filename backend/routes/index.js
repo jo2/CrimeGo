@@ -34,6 +34,21 @@ router.get('/story/:id', function (req, res) {
   });
 });
 
+/* GET the murder-options of the story */
+router.get('/story/:id/murder', function(req, res) {
+  // find the specified story
+  var story = findStoryById(req.params.id);
+  if (!story) {
+    res.sendStatus(404);
+    return;
+  }
+
+  res.send({
+    id: req.params.id,
+    murder: story.murder
+  })
+});
+
 /* GET the waypoint X of the story Y */
 router.get('/story/:id/:waypoint', function(req, res) {
   // find the specified story
@@ -54,21 +69,6 @@ router.get('/story/:id/:waypoint', function(req, res) {
     id: req.params.id,
     waypoint: waypoint
   });
-});
-
-/* GET the murder-options of the story */
-router.get('/story/:id/murder', function(req, res) {
-  // find the specified story
-  var story = findStoryById(req.params.id);
-  if (!story) {
-    res.sendStatus(404);
-    return;
-  }
-
-  res.send({
-    id: req.params.id,
-    murder: story.murder
-  })
 });
 
 function findStoryById(id) {
