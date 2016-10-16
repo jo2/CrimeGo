@@ -6,9 +6,9 @@
  */
 var positions = [
     {
-        name: "Bahnhof",
-        hint: 'Am Bahnhof Schönebeck wurde eine Leiche gefunden. Da Sie zu den führenden Privatermittlern in der Region gehören, werden Sie vom zuständigen Komissar gebeten, mitzukommen.' +
-        'Das Opfer ist eine junge Frau und nach ersten Untersuchungen des Gerichtsmediziners wurde sie vorraussichtlich gegen Mitternacht erdrosselt. Die Handtasche der Frau liegt neben der Leiche. ' +
+        name: "railway station",
+        hint: 'At the railway station Schönebeck a corbse has been found. Since you are the leading private investigator of the region , you ask by the inspector to follow him.' +
+        'The victim is a jung woman and after the study of the forensic medicine you forune gegen Mitternacht erdrosselt. Die Handtasche der Frau liegt neben der Leiche. ' +
         'Im Portmonaie finden Sie etwas Geld, sowie den Personalausweis der Frau. Sie können jetzt entweder die Anwohner befragen oder sich bei den Angehörigen der Frau umhören.',
         pos: {
             lat: 53.17286839853227,
