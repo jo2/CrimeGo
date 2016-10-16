@@ -1,8 +1,6 @@
 const STORYURL = 'js/stories.json'
 const SEEN_RADIUS = 20
 
-var CurrentStage = 0
-
 var infoWindow, map, positionMarker
 
 function loadStories (callback) {
@@ -17,7 +15,6 @@ function initMap () {
     center: {lat: -34.397, lng: 150.644},
     zoom: 17
   })
-  infoWindow = new google.maps.InfoWindow({map: map})
 }
 
 function initSightMarkers (sightPositions) {
@@ -38,6 +35,9 @@ function initOwnMarker (map, location, sightPositions) {
 
   positionMarker.addListener('dragend', function () {
     checkDistance(sightPositions, positionMarker)
+  })
+  positionMarker.addListener("click", function(){
+    infowindow.open(map, positionMarker)
   })
 }
 function initCurrentPos (sightPositions) {
@@ -60,14 +60,16 @@ function initCurrentPos (sightPositions) {
 }
 function checkDistance (sightPositions, ownPositionMarker) {
   var ownPos = ownPositionMarker.getPosition()
+  var nearSights = []
   for (var i = 0; i < sightPositions.length; i++) {
     var p2 = new google.maps.LatLng(sightPositions[i].pos.lat, sightPositions[i].pos.lng)
     console.log('Distance to ' + sightPositions[i].name + ': ' + calcDistance(ownPos, p2))
     if (calcDistance(ownPos, p2) < SEEN_RADIUS) {
       console.log('Near ' + sightPositions[i].name)
-      seen.push(sightPositions[i])
+      nearSights.push(sightPositions[i].name)
     }
   }
+  return nearSights
 }
 
 function placeMarker (map, location, description) {
@@ -78,6 +80,9 @@ function placeMarker (map, location, description) {
   var marker = new google.maps.Marker(markerConf)
   var infowindow = new google.maps.InfoWindow({
     content: description
+  })
+  marker.addListener("click", function(){
+    infowindow.open(map, marker)
   })
   infowindow.open(map, marker)
 }
