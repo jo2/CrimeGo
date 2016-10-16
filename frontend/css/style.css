@@ -79,6 +79,7 @@ a {
 .list-wrapper>ul{
   margin: 0px;
   padding-left: 0px;
+  text-align: center;
 
 
 }
@@ -89,19 +90,28 @@ a {
   background: #fff;
   border-radius: 5px;
   height: 75px;
-  margin: 10px auto;
+  margin: 10px 0px;
   text-align: justify;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 }
 
 
-.list-content{
+.list-content p{
 
-  overflow: hidden;
+  overflow:hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 
 
 }
+
+i.arrow-list-icon{
+  transition: 0.25s;
+  font-size: 40px !important;
+}
+
+
 
 
 .material-icons{
