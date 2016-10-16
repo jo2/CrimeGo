@@ -45,8 +45,13 @@ function loadStories (callback) {
 
 function initMap () {
   map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: -34.397, lng: 150.644},
-    zoom: 17
+    center: {lat: 53.168089889583236, lng: 8.650446087085584},
+    zoom: 17,
+    scrollwheel: false,
+    navigationControl: false,
+    mapTypeControl: false,
+    scaleControl: false,
+    draggable: false,
   })
 }
 
@@ -83,7 +88,7 @@ function initCurrentPos (sightPositions) {
         lng: position.coords.longitude
       }
       initOwnMarker(map, pos, sightPositions)
-      map.setCenter(pos)
+      //map.setCenter(pos)
     }, function () {
       handleLocationError(true, infoWindow, map.getCenter())
     })
