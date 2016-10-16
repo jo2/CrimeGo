@@ -136,6 +136,7 @@ function createFinishForm(MurderJson) {
 
      $('#story-modal .modal-body').append(radio)
    })
+   $('#story-modal').modal('show')
 }
 
 function createModal(text) {
@@ -146,13 +147,15 @@ function createModal(text) {
 initMap()
 loadStories(function (storiesJson) {
   theGame.story = storiesJson.waypoints
+
+  $.getJSON("http://localhost:3000/story/" + STORYID + "/murder", function(json) {
+console.log(json)
+    theGame.murders = json
+    createFinishForm(json)
+  })
   theGame.levelUp()
   initSightMarkers(storiesJson.waypoints)
   initCurrentPos(storiesJson.waypoints)
-})
-$.getJSON("/story/" + STORYID + "/murder", function(json) {
-  theGame.murders = json
-  createFinishForm(json)
 })
 function getSearchParameters() {
     var prmstr = window.location.search.substr(1)
