@@ -1,14 +1,16 @@
 [
     {
+        "id": 1,
         "title": "Der Mord des alten Kunstliebhabers",
-        "sightPositions": [
+        "waypoints": [
             {
                 "name": "Haupteingang",
                 "hint": "Sie sind ein angesehener Privatdetektiv aus Bremen. Sie waren in der Lage den Diebstahl eines sehr wertvollen Gemäldes aufzuklären. Als Dank hat Sie der Besitzer zu einer Party eingeladen. Aufgrund des andauernd guten Wetters findet die Party im Garten des Anwesens statt. Während der Gartenparty bekommen Sie einen Streit zwischen den Kindern des alten Kunstliebhabers mit. Sohn1 ist grade dabei seine Schwester anzuschreien, welche sich daraufhin hinter ihren wesentlich größeren Mann zurückzieht. Bei dem Streit geht es scheinbar um das Erbe. Sohn2, der wie sein Bruder eher kräftig gebaut ist, versucht schlichtend in den Streit einzugreifen. Ein Bekannter der Familie beschwichtigt allerdings Ihre Sorgen. \"Sowas kommt bei denen öfter vor... Das ist leider zum Alltag geworden.\" Ein paar Minuten später hören Sie einen lauten Schrei aus der Nähe der Kapelle. Sie machen sich sofort auf den Weg.",
                 "pos": {
                     "lat": 53.168089889583236,
                     "lng": 8.650446087085584
-                }
+                },
+                "hasNext": true
             },
             {
                 "name": "Kirche",
@@ -16,7 +18,8 @@
                 "pos": {
                     "lat": 53.16743386039139,
                     "lng": 8.65030661221681
-                }
+                },
+                "hasNext": true
             },
             {
                 "name": "Hausecke",
@@ -24,7 +27,8 @@
                 "pos": {
                     "lat": 53.16702866048783,
                     "lng": 8.65078940983949
-                }
+                },
+                "hasNext": true
             },
             {
                 "name": "Haupteingang",
@@ -32,7 +36,8 @@
                 "pos": {
                     "lat": 53.168089889583236,
                     "lng": 8.650446087085584
-                }
+                },
+                "hasNext": true
             },
             {
                 "name": "Küche",
@@ -40,7 +45,8 @@
                 "pos": {
                     "lat": 53.16816706843623,
                     "lng": 8.651154190265515
-                }
+                },
+                "hasNext": true
             },
             {
                 "name": "Einfahrt",
@@ -48,7 +54,23 @@
                 "pos": {
                     "lat": 53.16797412045459,
                     "lng": 8.647967725955823
-                }
+                },
+                "hasNext": false
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Meine Test Story",
+        "waypoints": [
+            {
+                "name": "Station 1",
+                "hint": "Hier ist irgendetwas passiert",
+                "pos": {
+                    "lat": 53.168089889583236,
+                    "lng": 8.650446087085584
+                },
+                "hasNext": false
             }
         ]
     }

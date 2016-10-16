@@ -4,8 +4,8 @@
 var sightPositions = [
     {
         name: 'Haupteingang',
-        hint: 'Sie sind ein angesehener Privatdetektiv aus Bremen. Sie waren in der Lage den Diebstahl eines sehr wertvollen Gemäldes aufzuklären. Als Dank hat Sie der Besitzer ' +
-        'zu einer Party eingeladen. Auf Grund des andauernd guten Wetters findet die Party im Garten des Anwesens statt. Während der Gartenparty bekommen Sie einen Streit zwischen den Kindern des alten Kunstliebhabers mit. Sohn1, ist grade dabei, seine SChwester anzuschreien, welche sich' +
+        hint: 'Sie sind ein angesehener Privatdetektiv aus Bremen. Sie waren in der Lage den Diebstahl eines sehr wertvollen Gemäldes aufzuklären. Als Dank hat Sie die Familie des mittlerweile verstorbenen Besitzers  ' +
+        'zu einer Party eingeladen. Auf Grund des andauernd guten Wetters findet die Party im Garten des Anwesens statt. Während der Gartenparty bekommen Sie einen Streit zwischen den Kindern des alten Kunstliebhabers mit. Sohn1, ist grade dabei, seine Schwester anzuschreien, welche sich' +
         'darauf hin hinter ihrme wesentlich größeren Mann zurückzeiht. Bei dem Streit geht es scheinbar um das Erbe. Sohn2, der wie sein Bruder eher kräftig gebaut ist, versucht schlitchtend in den Streit einzugreifen.' +
         'Ein Bekannter der Familie beschwichtigt allerdings Ihre Sorgen. \"Sowas kommt bei denen öfter vor.. Das ist leider zum Alltag geworden.\" Ein paar Minuten später hören Sie ' +
         'einen lauten Schrei aus der Nähe der Kapelle. Sie machen sich sofort auf den Weg.',
