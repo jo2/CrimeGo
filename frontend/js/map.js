@@ -7,6 +7,30 @@ const SEEN_RADIUS = 20
 
 var infoWindow, map, positionMarker
 
+function Game() {
+  this.currentStageCounter= 0
+  this.story =  null
+  this.checkPlaces =  function (seen){
+    var searchingFor = this.story[this.currentStageCounter].name
+    if(seen.includes(searchingFor))
+      this.levelUp()
+  }
+  this.levelUp= function () {
+    if(this.currentStageCounter + 1 < this.story.length){ // Has next step
+      this.currentStageCounter = this.currentStageCounter + 1
+      console.log("Finished step " + this.currentStageCounter)
+    }else{
+      this.win()
+    }
+  },
+  this.win= function() {
+    console.log("You won-")
+  }
+
+}
+
+ var theGame = new Game()
+
 function loadStories (callback) {
   $.getJSON(STORYURL, function (json) {
     callback(json)
@@ -38,7 +62,8 @@ function initOwnMarker (map, location, sightPositions) {
   })
 
   positionMarker.addListener('dragend', function () {
-    checkDistance(sightPositions, positionMarker)
+    var seen = checkDistance(sightPositions, positionMarker)
+    theGame.checkPlaces(seen)
   })
   positionMarker.addListener("click", function(){
     infowindow.open(map, positionMarker)
@@ -104,6 +129,8 @@ function calcDistance (p1, p2) {
 
 initMap()
 loadStories(function (storiesJson) {
+  theGame.story = storiesJson.waypoints
+  theGame.levelUp()
   initSightMarkers(storiesJson.waypoints)
   initCurrentPos(storiesJson.waypoints)
 })
