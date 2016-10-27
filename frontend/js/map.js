@@ -47,11 +47,11 @@ function initMap () {
   map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 53.168089889583236, lng: 8.650446087085584},
     zoom: 17,
-    scrollwheel: false,
+    /*scrollwheel: false,
     navigationControl: false,
     mapTypeControl: false,
     scaleControl: false,
-    draggable: false,
+    draggable: false,*/
   })
 }
 
@@ -102,8 +102,9 @@ function checkDistance (sightPositions, ownPositionMarker) {
   var nearSights = []
   for (var i = 0; i < sightPositions.length; i++) {
     var p2 = new google.maps.LatLng(sightPositions[i].pos.lat, sightPositions[i].pos.lng)
-    console.log('Distance to ' + sightPositions[i].name + ': ' + calcDistance(ownPos, p2))
-    if (calcDistance(ownPos, p2) < SEEN_RADIUS) {
+    var distance = calcDistance(ownPos, p2)
+    console.log('Distance to ' + sightPositions[i].name + ': ' + distance + ' m')
+    if (distance < SEEN_RADIUS) {
       console.log('Near ' + sightPositions[i].name)
       nearSights.push(sightPositions[i].name)
     }
